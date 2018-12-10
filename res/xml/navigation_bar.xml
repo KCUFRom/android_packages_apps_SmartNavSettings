@@ -22,6 +22,29 @@
         android:key="navbar_visibility"
         android:title="@string/navbar_visibility" />
 
+    <com.kcuf.settings.preferences.SystemSettingSwitchPreference
+        android:key="pixel_nav_animation"
+        android:title="@string/pixel_navbar_anim_title"
+        android:summary="@string/pixel_navbar_anim_summary"
+        android:dependency="navbar_visibility"
+        android:defaultValue="true" />
+
+    <Preference
+        android:key="gesture_swipe_up_input_summary"
+        android:title="@string/swipe_up_to_switch_apps_title"
+        android:fragment="com.android.settings.gestures.SwipeUpGestureSettings"
+        android:summary="@string/swipe_up_home_summary"
+        settings:controller="com.android.settings.gestures.SwipeUpPreferenceController" />
+
+    <Preference
+        android:key="default_settings"
+        android:title="@string/default_settings"
+        android:summary="@string/default_settings_summary">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.systemui"
+            android:targetClass="com.android.systemui.tuner.NavBarActivity" />
+    </Preference>
+
     <PreferenceCategory
         android:key="category_navbar_interface"
         android:title="@string/navbar_interface_title" >
@@ -44,12 +67,6 @@
             android:title="@string/fling_settings"
             android:summary="@string/fling_settings_summary"
             android:fragment="com.android.settings.smartnav.FlingSettings" />
-
-        <Preference
-            android:key="default_settings"
-            android:title="@string/default_settings"
-            android:summary="@string/default_settings_summary"
-            android:fragment="com.android.settings.gestures.GestureSettings" />
 
     </PreferenceCategory>
     
@@ -82,13 +99,7 @@
           android:key="pulse_settings"
           android:title="@string/pulse_settings"
           android:summary="@string/pulse_settings_summary"
+          android:dependency="navbar_visibility"
           android:fragment="com.android.settings.smartnav.PulseSettings" />
-
-    <com.kcuf.settings.preferences.SystemSettingSwitchPreference
-        android:key="pixel_nav_animation"
-        android:title="@string/pixel_navbar_anim_title"
-        android:summary="@string/pixel_navbar_anim_summary"
-        android:dependency="navbar_visibility"
-        android:defaultValue="true" />
 
 </PreferenceScreen>

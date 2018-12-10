@@ -67,6 +67,7 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mBarHeightLand;
     private CustomSeekBarPreference mBarWidth;
     private PreferenceScreen mPulseSettings;
+    private PreferenceScreen mHomeGesture;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
